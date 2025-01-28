@@ -1,0 +1,150 @@
+@use "sass:color";
+
+// Flexbox mixins
+@mixin flex($direction: row, $justify: flex-start, $align: stretch, $wrap: nowrap) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+  flex-wrap: $wrap;
+}
+
+// Media queries
+@mixin mobile {
+  @media (max-width: #{$mobile}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: #{$mobile + 1}) and (max-width: #{$desktop - 1}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$desktop}) {
+    @content;
+  }
+}
+
+// Typography
+@mixin heading-1 {
+  font-family: $font-primary;
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  
+  @include mobile {
+    font-size: 2.5rem;
+  }
+}
+
+@mixin heading-2 {
+  font-family: $font-primary;
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.3;
+  
+  @include mobile {
+    font-size: 2rem;
+  }
+}
+
+@mixin heading-3 {
+  font-family: $font-primary;
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1.4;
+  
+  @include mobile {
+    font-size: 1.75rem;
+  }
+}
+
+@mixin body-text {
+  font-family: $font-primary;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: $text-color;
+}
+
+// Animations
+@mixin fade-in($duration: 0.3s) {
+  animation: fadeIn $duration ease-in;
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+}
+
+@mixin slide-up($duration: 0.5s) {
+  animation: slideUp $duration ease-out;
+  
+  @keyframes slideUp {
+    from {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+}
+
+// Buttons
+@mixin button-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-sm $spacing-lg;
+  border-radius: $border-radius-md;
+  font-weight: 500;
+  transition: all $transition-normal;
+  cursor: pointer;
+  
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+@mixin button-primary {
+  @include button-base;
+  background-color: $primary-color;
+  color: white;
+  
+  &:hover:not(:disabled) {
+    background-color: color.adjust($primary-color, $lightness: -10%);
+  }
+}
+
+@mixin button-secondary {
+  @include button-base;
+  background-color: transparent;
+  border: 2px solid $primary-color;
+  color: $primary-color;
+  
+  &:hover:not(:disabled) {
+    background-color: $primary-color;
+    color: white;
+  }
+}
+
+// Container
+@mixin container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 $spacing-md;
+  
+  @include mobile {
+    padding: 0 $spacing-sm;
+  }
+}

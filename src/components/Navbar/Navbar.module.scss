@@ -1,0 +1,125 @@
+@use "sass:color";
+@import '@/styles/variables';
+@import '@/styles/mixins';
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background-color: transparent;
+  transition: all $transition-normal;
+  z-index: $z-index-fixed;
+
+  &.scrolled {
+    background-color: rgba(white, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: $shadow-sm;
+  }
+}
+
+.container {
+  @include container;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: $secondary-color;
+  text-decoration: none;
+  transition: color $transition-fast;
+
+  &:hover {
+    color: $primary-color;
+  }
+}
+
+.desktopNav {
+  display: flex;
+  align-items: center;
+  gap: $spacing-lg;
+
+  @include mobile {
+    display: none;
+  }
+}
+
+.navLink {
+  color: $text-color;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color $transition-fast;
+  padding: $spacing-xs $spacing-sm;
+  border-radius: $border-radius-sm;
+
+  &:hover {
+    color: $primary-color;
+  }
+}
+
+.ctaButton {
+  @include button-primary;
+  padding: $spacing-sm $spacing-lg;
+}
+
+.menuButton {
+  display: none;
+  background: none;
+  border: none;
+  color: $text-color;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: $spacing-xs;
+  transition: color $transition-fast;
+
+  &:hover {
+    color: $primary-color;
+  }
+
+  @include mobile {
+    display: block;
+  }
+}
+
+.mobileNav {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: white;
+  padding: $spacing-lg;
+  box-shadow: $shadow-md;
+  display: none;
+  flex-direction: column;
+  gap: $spacing-md;
+
+  @include mobile {
+    display: flex;
+  }
+}
+
+.mobileNavLink {
+  color: $text-color;
+  text-decoration: none;
+  font-weight: 500;
+  padding: $spacing-sm;
+  border-radius: $border-radius-sm;
+  transition: all $transition-fast;
+
+  &:hover {
+    color: $primary-color;
+    background-color: rgba($primary-color, 0.05);
+  }
+}
+
+.mobileCta {
+  @include button-primary;
+  width: 100%;
+  margin-top: $spacing-sm;
+  padding: $spacing-sm;
+}

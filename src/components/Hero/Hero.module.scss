@@ -1,0 +1,162 @@
+@use "sass:color";
+@import '@/styles/variables';
+@import '@/styles/mixins';
+
+.hero {
+  min-height: 100vh;
+  padding: $spacing-3xl 0;
+  background: linear-gradient(135deg, rgba($primary-color, 0.05) 0%, rgba($accent-color, 0.05) 100%);
+  overflow: hidden;
+  
+  @include mobile {
+    padding: $spacing-2xl 0;
+  }
+}
+
+.container {
+  @include container;
+  @include flex(row, space-between, center);
+  gap: $spacing-2xl;
+  
+  @include mobile {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+.content {
+  flex: 1;
+  max-width: 600px;
+}
+
+.title {
+  @include heading-1;
+  margin-bottom: $spacing-lg;
+}
+
+.highlight {
+  color: $primary-color;
+  position: relative;
+  display: inline-block;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0.2em;
+    left: 0;
+    width: 100%;
+    height: 0.2em;
+    background-color: rgba($accent-color, 0.3);
+    z-index: -1;
+  }
+}
+
+.description {
+  font-size: 1.25rem;
+  color: $light-text;
+  margin-bottom: $spacing-xl;
+  
+  @include mobile {
+    font-size: 1.1rem;
+  }
+}
+
+.cta {
+  @include flex(row, flex-start, center);
+  gap: $spacing-md;
+  margin-bottom: $spacing-2xl;
+  
+  @include mobile {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}
+
+.primaryButton {
+  @include button-primary;
+  padding: $spacing-md $spacing-xl;
+  font-size: 1.1rem;
+  
+  .icon {
+    margin-left: $spacing-sm;
+    transition: transform $transition-fast;
+  }
+  
+  &:hover .icon {
+    transform: translateX(4px);
+  }
+}
+
+.secondaryButton {
+  @include button-secondary;
+  padding: $spacing-md $spacing-xl;
+  font-size: 1.1rem;
+}
+
+.stats {
+  @include flex(row, flex-start, center);
+  gap: $spacing-2xl;
+  
+  @include mobile {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: $spacing-xl;
+  }
+}
+
+.statItem {
+  @include flex(column, center, flex-start);
+  gap: $spacing-xs;
+  
+  @include mobile {
+    align-items: center;
+  }
+}
+
+.statNumber {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: $primary-color;
+  line-height: 1;
+}
+
+.statLabel {
+  font-size: 0.9rem;
+  color: $light-text;
+  white-space: nowrap;
+}
+
+.imageContainer {
+  flex: 1;
+  position: relative;
+  max-width: 600px;
+  
+  @include mobile {
+    width: 100%;
+    margin-top: $spacing-2xl;
+  }
+}
+
+.image {
+  position: relative;
+  z-index: 2;
+  
+  img {
+    width: 100%;
+    height: auto;
+    border-radius: $border-radius-lg;
+    box-shadow: $shadow-lg;
+  }
+}
+
+.backgroundShape {
+  position: absolute;
+  top: -10%;
+  right: -10%;
+  width: 80%;
+  height: 80%;
+  background: linear-gradient(135deg, $primary-color 0%, $accent-color 100%);
+  border-radius: $border-radius-lg;
+  opacity: 0.1;
+  z-index: 1;
+}

@@ -1,0 +1,127 @@
+@use "sass:color";
+@import '@/styles/variables';
+@import '@/styles/mixins';
+
+.footer {
+  background-color: $dark-background;
+  color: white;
+  padding: $spacing-3xl 0 $spacing-xl;
+}
+
+.container {
+  @include container;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.5fr;
+  gap: $spacing-2xl;
+  margin-bottom: $spacing-3xl;
+  
+  @include tablet {
+    grid-template-columns: 1fr 1fr;
+    gap: $spacing-xl;
+  }
+  
+  @include mobile {
+    grid-template-columns: 1fr;
+    gap: $spacing-xl;
+  }
+}
+
+.company {
+  .logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: $spacing-md;
+  }
+  
+  .description {
+    color: $light-text;
+    margin-bottom: $spacing-lg;
+  }
+}
+
+.social {
+  @include flex(row, flex-start, center);
+  gap: $spacing-md;
+  
+  a {
+    @include flex(row, center, center);
+    width: 40px;
+    height: 40px;
+    border-radius: $border-radius-full;
+    background-color: rgba(white, 0.1);
+    color: white;
+    transition: all $transition-fast;
+    
+    &:hover {
+      background-color: $primary-color;
+      transform: translateY(-2px);
+    }
+  }
+}
+
+.links {
+  h4 {
+    color: white;
+    font-size: 1.1rem;
+    margin-bottom: $spacing-lg;
+  }
+  
+  a {
+    display: block;
+    color: $light-text;
+    margin-bottom: $spacing-sm;
+    transition: all $transition-fast;
+    
+    &:hover {
+      color: white;
+      transform: translateX(4px);
+    }
+  }
+}
+
+.contact {
+  h4 {
+    color: white;
+    font-size: 1.1rem;
+    margin-bottom: $spacing-lg;
+  }
+  
+  p {
+    color: $light-text;
+    margin-bottom: $spacing-sm;
+  }
+}
+
+.bottom {
+  padding-top: $spacing-xl;
+  border-top: 1px solid rgba(white, 0.1);
+  @include flex(row, space-between, center);
+  
+  @include mobile {
+    flex-direction: column;
+    gap: $spacing-md;
+    text-align: center;
+  }
+  
+  p {
+    color: $light-text;
+    margin: 0;
+  }
+}
+
+.legal {
+  @include flex(row, flex-end, center);
+  gap: $spacing-lg;
+  
+  a {
+    color: $light-text;
+    font-size: 0.9rem;
+    
+    &:hover {
+      color: white;
+    }
+  }
+}

@@ -1,0 +1,132 @@
+@use "sass:color";
+@import 'variables';
+@import 'mixins';
+
+// Reset and base styles
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: $font-primary;
+  color: $text-color;
+  background-color: $background;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+// Typography
+h1, h2, h3, h4, h5, h6 {
+  margin: 0 0 $spacing-md;
+  color: $secondary-color;
+}
+
+h1 { @include heading-1; }
+h2 { @include heading-2; }
+h3 { @include heading-3; }
+
+p {
+  @include body-text;
+  margin-bottom: $spacing-md;
+}
+
+a {
+  color: $primary-color;
+  text-decoration: none;
+  transition: color $transition-fast;
+  
+  &:hover {
+    color: color.adjust($primary-color, $lightness: -10%);
+  }
+}
+
+// Buttons
+.btn {
+  &-primary {
+    @include button-primary;
+  }
+  
+  &-secondary {
+    @include button-secondary;
+  }
+}
+
+// Container
+.container {
+  @include container;
+}
+
+// Section spacing
+section {
+  padding: $spacing-3xl 0;
+  
+  @include mobile {
+    padding: $spacing-2xl 0;
+  }
+}
+
+// Utility classes
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+.text-left { text-align: left; }
+
+.mb-1 { margin-bottom: $spacing-xs; }
+.mb-2 { margin-bottom: $spacing-sm; }
+.mb-3 { margin-bottom: $spacing-md; }
+.mb-4 { margin-bottom: $spacing-lg; }
+.mb-5 { margin-bottom: $spacing-xl; }
+
+.mt-1 { margin-top: $spacing-xs; }
+.mt-2 { margin-top: $spacing-sm; }
+.mt-3 { margin-top: $spacing-md; }
+.mt-4 { margin-top: $spacing-lg; }
+.mt-5 { margin-top: $spacing-xl; }
+
+// Animations
+.fade-in {
+  @include fade-in;
+}
+
+.slide-up {
+  @include slide-up;
+}
+
+// Grid system
+.grid {
+  display: grid;
+  gap: $spacing-lg;
+  
+  &-2 {
+    grid-template-columns: repeat(2, 1fr);
+    
+    @include mobile {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  &-3 {
+    grid-template-columns: repeat(3, 1fr);
+    
+    @include mobile {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  &-4 {
+    grid-template-columns: repeat(4, 1fr);
+    
+    @include tablet {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    @include mobile {
+      grid-template-columns: 1fr;
+    }
+  }
+}

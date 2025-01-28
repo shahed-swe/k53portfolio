@@ -1,0 +1,151 @@
+@use "sass:color";
+@import '@/styles/variables';
+@import '@/styles/mixins';
+
+.team {
+  padding: 6rem 0;
+  background-color: var(--background);
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  .sectionHeader {
+    text-align: center;
+    margin-bottom: 4rem;
+
+    h2 {
+      font-size: 2.5rem;
+      color: var(--text-primary);
+      margin-bottom: 1rem;
+    }
+
+    p {
+      color: var(--text-secondary);
+      font-size: 1.1rem;
+    }
+  }
+
+  .teamGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 1rem;
+  }
+
+  .teamCard {
+    background: var(--background-light);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+
+      .socialLinks {
+        opacity: 1;
+      }
+    }
+  }
+
+  .imageWrapper {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+  }
+
+  .memberImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .socialLinks {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+
+    a {
+      color: white;
+      font-size: 1.2rem;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: var(--primary);
+      }
+    }
+  }
+
+  .memberInfo {
+    padding: 1.5rem;
+    text-align: center;
+
+    h3 {
+      font-size: 1.5rem;
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .designation {
+      color: var(--primary);
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+
+    .bio {
+      color: var(--text-secondary);
+      line-height: 1.6;
+      font-size: 0.9rem;
+    }
+  }
+
+  .loading, .error, .noTeam {
+    text-align: center;
+    padding: 3rem;
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    background: var(--background-light);
+    border-radius: 10px;
+    margin: 2rem auto;
+    max-width: 600px;
+  }
+
+  .error {
+    color: var(--error);
+    border: 1px solid var(--error);
+  }
+
+  .noTeam {
+    color: var(--text-secondary);
+    border: 1px solid var(--border);
+  }
+}
+
+@media (max-width: 768px) {
+  .team {
+    padding: 4rem 0;
+
+    .sectionHeader {
+      h2 {
+        font-size: 2rem;
+      }
+    }
+
+    .teamGrid {
+      grid-template-columns: 1fr;
+    }
+  }
+}
