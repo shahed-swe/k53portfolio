@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTwitter, faLinkedinIn, faGithub } from '@fortawesome/free-brands-svg-icons';
 import styles from './Footer.module.scss';
@@ -10,9 +11,18 @@ const Footer = () => {
       <div className={styles.container}>
         <div className={styles.grid}>
           <div className={styles.company}>
-            <h3 className={styles.logo}>Company Name</h3>
+            <div className={styles.logoContainer}>
+              <Image
+                src="/images/k53logo.png"
+                alt="K53 Tech Logo"
+                width={40}
+                height={40}
+                className={styles.logoImage}
+              />
+              <h3 className={styles.logo}>K53 Tech</h3>
+            </div>
             <p className={styles.description}>
-              Creating innovative digital solutions for modern businesses.
+              Empowering businesses with innovative digital solutions and cutting-edge technology.
             </p>
             <div className={styles.social}>
               <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
@@ -47,13 +57,13 @@ const Footer = () => {
             <h4>Contact Us</h4>
             <p>123 Business Street</p>
             <p>New York, NY 10001</p>
-            <p>contact@company.com</p>
+            <p>contact@k53tech.com</p>
             <p>+1 (555) 123-4567</p>
           </div>
         </div>
 
         <div className={styles.bottom}>
-          <p>&copy; {new Date().getFullYear()} Company Name. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} K53 Tech. All rights reserved.</p>
           <div className={styles.legal}>
             <Link href="/privacy">Privacy Policy</Link>
             <Link href="/terms">Terms of Service</Link>

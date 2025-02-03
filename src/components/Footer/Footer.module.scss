@@ -30,15 +30,33 @@
 }
 
 .company {
-  .logo {
-    font-size: 1.5rem;
-    font-weight: 700;
+  .logoContainer {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
     margin-bottom: $spacing-md;
+
+    .logoImage {
+      width: 40px;
+      height: 40px;
+      object-fit: contain;
+    }
+    
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: white;
+      line-height: 1;
+      margin: 0;
+      display: flex;
+      align-items: center;
+    }
   }
   
   .description {
     color: $light-text;
     margin-bottom: $spacing-lg;
+    line-height: 1.6;
   }
 }
 
@@ -99,29 +117,29 @@
   padding-top: $spacing-xl;
   border-top: 1px solid rgba(white, 0.1);
   @include flex(row, space-between, center);
+  flex-wrap: wrap;
+  gap: $spacing-md;
   
   @include mobile {
     flex-direction: column;
-    gap: $spacing-md;
     text-align: center;
   }
   
   p {
     color: $light-text;
-    margin: 0;
   }
-}
-
-.legal {
-  @include flex(row, flex-end, center);
-  gap: $spacing-lg;
   
-  a {
-    color: $light-text;
-    font-size: 0.9rem;
+  .legal {
+    @include flex(row, center, center);
+    gap: $spacing-lg;
     
-    &:hover {
-      color: white;
+    a {
+      color: $light-text;
+      transition: color $transition-fast;
+      
+      &:hover {
+        color: white;
+      }
     }
   }
 }
