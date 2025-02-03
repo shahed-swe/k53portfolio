@@ -14,7 +14,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Company Name - Modern Solutions for Modern Problems</title>
+        <title>K53 Tech - Modern Solutions for Modern Problems</title>
         <meta name="description" content="We create innovative digital solutions that help businesses grow and succeed in the modern world." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
