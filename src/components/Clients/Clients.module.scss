@@ -1,0 +1,167 @@
+.clients {
+  padding: 6rem 0;
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.1), transparent);
+  }
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.logoGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.logoWrapper {
+  padding: 1rem;
+}
+
+.logoInner {
+  position: relative;
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+  transition: all 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+
+    .overlay {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+.logo {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  filter: grayscale(100%);
+  opacity: 0.8;
+  transition: all 0.3s ease;
+
+  &:hover {
+    filter: grayscale(0);
+    opacity: 1;
+  }
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(255, 255, 255, 0.95), transparent);
+  padding: 1rem;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+}
+
+.clientName {
+  display: block;
+  text-align: center;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #333;
+}
+
+.partner {
+  text-align: center;
+  padding-top: 3rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.partnerContent {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 2rem;
+  background: white;
+  border-radius: 100px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.partnerText {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.realtimeLogo {
+  height: auto;
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .clients {
+    padding: 4rem 0;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .logoGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .logoInner {
+    height: 140px;
+    padding: 1.5rem;
+  }
+}

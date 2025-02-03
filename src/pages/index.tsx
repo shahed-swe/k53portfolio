@@ -6,6 +6,8 @@ import Work from '@/components/Work/Work';
 import About from '@/components/About/About';
 import Team from '@/components/Team/Team';
 import Contact from '@/components/Contact/Contact';
+import WhyChooseUs from '@/components/WhyChooseUs/WhyChooseUs';
+import Clients from '@/components/Clients/Clients';
 
 export default function Home() {
   return (
@@ -20,6 +22,8 @@ export default function Home() {
       <Hero />
       <Services />
       <Work />
+      <WhyChooseUs />
+      <Clients />
       <About />
       <Team />
       <Contact />
